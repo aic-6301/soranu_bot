@@ -51,7 +51,7 @@ logging.debug("discord.py -> インテント生成完了")
 
 ### クライアントの生成
 # bot = discord.Client(intents=intents, activity=discord.Game(name="起きようとしています..."))
-bot = commands.Bot(command_prefix='yr!', intents=intents)
+bot = commands.Bot(command_prefix='sr!', intents=intents)
 logging.debug("discord.py -> クライアント生成完了")
 
 ##sendExceptionが利用できるようにする
