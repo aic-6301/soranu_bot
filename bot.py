@@ -57,6 +57,8 @@ logging.debug("discord.py -> クライアント生成完了")
 ##sendExceptionが利用できるようにする
 exception_init(bot)
 
+bot.owner_ids = [964887498436276305, 1080043118000361542, 536489930080256011, 666180024906547201, 892376684093898772]
+
 ### コマンドツリーの作成
 tree = bot.tree
 logging.debug("discord.py -> ツリー生成完了")
