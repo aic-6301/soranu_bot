@@ -1,0 +1,5 @@
+.env
+*.db
+*.wav
+__pycache__
+dic_test.py
