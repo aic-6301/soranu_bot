@@ -24,7 +24,7 @@ class onecomment(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message:discord.Message):
-        if message.channel == self.bot.get_channel(867692303664807946):
+        if message.channel == self.bot.get_channel(1117205927116943431):
             if message.author.bot:
                 return
             if message.author.id in self.messages:
@@ -39,7 +39,7 @@ class onecomment(commands.Cog):
 
     @tasks.loop()
     async def ranking(self):
-        channel = self.bot.get_channel(867692303664807946)
+        channel = self.bot.get_channel(1117205927116943431)
         now = datetime.now()
         if now.strftime("%H:%M") == "00:01":
             if self.enable is True:
@@ -60,7 +60,7 @@ class onecomment(commands.Cog):
         elif now.strftime("%H:%M") == "23:59":
             if self.enable is True:
                 if self.embed is None:
-                    self.embed = await channel.send(content="<@&1224736836744908893> 寝る時間です。ついでに１コメも。",embed=discord.Embed(title="一コメランキング", description=f"計測中...結果は{discord.utils.format_dt((now+timedelta(days=1)).replace(hour=0, minute=1, second=0, microsecond=0))}に送信されます。", color=discord.Color.blue()))
+                    self.embed = await channel.send(content="寝る時間です。ついでに１コメも。",embed=discord.Embed(title="一コメランキング", description=f"計測中...結果は{discord.utils.format_dt((now+timedelta(days=1)).replace(hour=0, minute=1, second=0, microsecond=0))}に送信されます。", color=discord.Color.blue()))
         else:
             self.embed = None
 
@@ -72,7 +72,7 @@ class onecomment(commands.Cog):
         if self.enable is True:
             self.enable = False
             await interaction.response.send_message(embed=discord.Embed(title="無効化", description=f"今日の一コメを中止しました。\n理由:{reason}", color=discord.Color.red()), ephemeral=True)
-            await self.bot.get_channel(867692303664807946).send(content="<@&1224736836744908893>", embed=discord.Embed(title="一コメランキング", description=f"管理者が今日の一コメを無効化しました。\n理由:{reason}", color=discord.Color.orange()))
+            await self.bot.get_channel(1117205927116943431).send(content="", embed=discord.Embed(title="一コメランキング", description=f"管理者が今日の一コメを無効化しました。\n理由:{reason}", color=discord.Color.orange()))
         else:
             await interaction.response.send_message(embed=discord.Embed(title="無効化", description="今日の一コメは既に無効化されています。", color=discord.Color.red()), ephemeral=True)
 
@@ -82,7 +82,7 @@ class onecomment(commands.Cog):
         if self.enable is False:
             self.enable = True
             await interaction.response.send_message(embed=discord.Embed(title="有効化", description="今日の一コメを有効化にしました", color=discord.Color.red()), ephemeral=True)
-            await self.bot.get_channel(867692303664807946).send(content="<@&1224736836744908893>", embed=discord.Embed(title="一コメランキング", description="管理者が今日の一コメを有効化にしました。", color=discord.Color.green()))
+            await self.bot.get_channel(1117205927116943431).send(content="", embed=discord.Embed(title="一コメランキング", description="管理者が今日の一コメを有効化にしました。", color=discord.Color.green()))
         else:
             await interaction.response.send_message(embed=discord.Embed(title="有効化", description="今日の一コメは既に有効化されています。", color=discord.Color.red()), ephemeral=True)
 
